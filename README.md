@@ -8,7 +8,7 @@ _For Mandaluyong Dog Clinic with Crematorium_
 
 ## Overview 📝
 
-**STRAY** is an integrated animal feeding system combining **edge cameras** (ESP32-CAM), **object detection** (YOLO), and a cloud-hosted **web app** for scheduling, monitoring, and auditing feeds. Use the frontend to view live feeds, trigger manual or scheduled dispensing, review gallery images (with detections), and inspect telemetry (weight, battery/solar).
+**STRAY** is an integrated animal feeding system combining **edge cameras** (ESP32-CAM), **object detection** (YOLO), and a cloud-hosted **web app** for scheduling, monitoring, and auditing feeds. Use the frontend to view live feeds, trigger manual or scheduled dispensing, and review gallery images (with detections).
 
 ## Hero images / screenshots 📷
 
@@ -24,7 +24,10 @@ _For Mandaluyong Dog Clinic with Crematorium_
 
 - **Accurate** camera-based detection of animals visiting the feeder
 - **Reliable** scheduling and manual feeding controls with cooldowns
-- **Telemetry** integration (weight sensor & power monitoring) for dispensing verification and field maintenance
+  **Key objectives:**
+
+- **Accurate** camera-based detection of animals visiting the feeder
+- **Reliable** scheduling and manual feeding controls with cooldowns
 - **Simple developer setup** and clear admin tools for operations
 
 ## Features ⚙️
@@ -48,8 +51,33 @@ _For Mandaluyong Dog Clinic with Crematorium_
 
 - **Frontend:** React + TypeScript + Vite + Material UI
 - **Backend:** Python Flask + SQLAlchemy (Flask-Migrate used for migrations)
-- **Edge device:** ESP32-CAM, optional HX711 + load cell, buck converter for power telemetry
+- **Edge device:** ESP32-CAM, optional HX711 + load cell, buck converter for power management
 - **Detection:** YOLO (model weights not committed — see notes below)
+
+## Hardware
+
+The project uses the following hardware components (accurate list provided by the maintainer):
+
+- **ESP32-CAM microcontroller** — Responsible for image capture, live video streaming, and controlling the dispensing mechanism. Can be integrated with a model for on-device detection.
+- **Servo Motor (SG92R)** — Controls the dispenser lid or mechanism for food dispensing.
+- **DC-DC Step-Down Module 5.0 XY-3606 buck converter (HW-688)** — Steps down voltage from a 12V adapter to 5V for the microcontroller and other components.
+- **AC/DC 12V 3A Power Adapter** — Supplies power from a wall outlet (12V/3A).
+- **Breadboard and Jumper Wires** — For solderless development and temporary connections.
+- **DIY Feeder Housing** — Custom-built housing to contain food and protect electronics.
+- **NS-08W Solar Panel 8W 9V** — Optional secondary power source for outdoor use.
+- **Battery 18650 Li-Ion cell** — Stores power from the solar panel for emergency or night use.
+- **Straight Bar Load Cell Weight Sensor 5kg** — Detects total weight of the feed container/bowl.
+- **HX711 Load Cell Amplifier Module** — Amplifies the load cell signal and converts it to digital.
+- **Bulk Electrolytic Capacitor (400 μF to 1000 μF)** — Energy reservoir to prevent brownouts during current spikes.
+- **Decoupling Capacitor 0.1 μF (100nF)** — High-frequency noise filter and local charge reservoir.
+
+## Software requirements
+
+- **Arduino IDE** — For writing and uploading ESP32-CAM sketches.
+- **MySQL Workbench** — Visual database design and management tool used during development and testing.
+- **XAMPP** — Local Apache + MySQL stack useful for local testing of database-backed features.
+- **Visual Studio Code** — Recommended editor for frontend (React + TypeScript) and backend (Flask) development.
+- **Machine Learning / Object Detection (YOLOv8)** — YOLOv8 model used for detecting cats and dogs in images/streams.
 
 ## Getting Started 🚀
 
@@ -220,8 +248,7 @@ uploads/           # runtime image uploads (gitignored)
 - `GET /api/feeders` — list feeders and status
 - `POST /api/feeders/:id/trigger` — **{ grams }** trigger a manual feed
 - `POST /api/gallery/upload` — base64 image + metadata
-- `POST /api/weight-events` — feeder weight telemetry (optional)
-- `POST /api/power-status` — power telemetry (optional)
+- `POST /api/gallery/upload` — base64 image + metadata
 
 ## Testing & CI ✅
 
