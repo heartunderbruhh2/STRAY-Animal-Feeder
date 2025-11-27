@@ -56,9 +56,9 @@ _For Mandaluyong Dog Clinic with Crematorium_
 ### Quick clone & run (Windows PowerShell)
 
 ```powershell
-# Clone the repo
-git clone https://github.com/<your-org>/stray-feeder.git
-cd "feeder-vite-app - Copy"
+# Clone the repo (your GitHub URL)
+git clone https://github.com/heartunderbruhh2/STRAY-Animal-Feeder.git
+cd "STRAY-Animal-Feeder"
 
 # Frontend
 npm install
@@ -88,8 +88,8 @@ Use these steps to set up the project on a different machine (Windows or Linux /
 2. Clone repository
 
 ```bash
-git clone https://github.com/<your-org>/stray-feeder.git
-cd "feeder-vite-app - Copy"
+git clone https://github.com/heartunderbruhh2/STRAY-Animal-Feeder.git
+cd "STRAY-Animal-Feeder"
 ```
 
 3. Install frontend dependencies (optional on low-power devices)
@@ -178,6 +178,20 @@ git add .gitattributes
 git commit -m "Track model weights with Git LFS"
 ```
 
+If you plan to host this repository on GitHub (recommended), here are a few quick notes:
+
+- Repository URL: `https://github.com/heartunderbruhh2/STRAY-Animal-Feeder`
+- Create the repo on GitHub (web UI) and then push your local branch as shown earlier, or use `gh repo create`.
+- If `.pt` files were already committed without LFS, migrate them into LFS to avoid a large repo history:
+
+```bash
+# This rewrites history — only use if you understand its impact
+git lfs migrate import --include="*.pt"
+git push --force origin main
+```
+
+Alternatively, remove the large files from history and re-add them tracked by LFS, or store model weights in a release asset or cloud storage and reference the download URL in `docs/`.
+
 ## Project structure 🗂️
 
 ```
@@ -233,3 +247,5 @@ This project is released under the **MIT License** — add a `LICENSE` file in t
 For questions or to request help with deployment, open an issue or email the maintainer.
 
 ---
+
+If you'd like, I can commit demo GIF placeholders, add a `LICENSE` file, and scaffold a simple GitHub Actions CI workflow next. Which would you like me to do?
