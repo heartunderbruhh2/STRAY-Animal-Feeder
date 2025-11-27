@@ -24,10 +24,6 @@ _For Mandaluyong Dog Clinic with Crematorium_
 
 - **Accurate** camera-based detection of animals visiting the feeder
 - **Reliable** scheduling and manual feeding controls with cooldowns
-  **Key objectives:**
-
-- **Accurate** camera-based detection of animals visiting the feeder
-- **Reliable** scheduling and manual feeding controls with cooldowns
 - **Simple developer setup** and clear admin tools for operations
 
 ## Features ⚙️
@@ -158,6 +154,8 @@ Notes:
 
 - On constrained devices (Raspberry Pi), prefer running only the backend and/or using pre-built model inference services — avoid running heavy model inference on Pi unless using a lightweight model.
 
+- Weight/power telemetry available (optional hardware) — see `docs/USER_MANUAL.md` for details.
+
 ## Firmware & Device Sketches 🔧
 
 The project includes ESP32-CAM firmware sketches used to connect feeder devices to the web platform. You can find the sketches here:
@@ -220,6 +218,26 @@ git push --force origin main
 
 Alternatively, remove the large files from history and re-add them tracked by LFS, or store model weights in a release asset or cloud storage and reference the download URL in `docs/`.
 
+## Cross references
+
+- **User manual:** `docs/USER_MANUAL.md`
+- **Quick start (printable):** `docs/QUICKSTART.html`
+- **Model download & LFS:** `docs/MODEL_DOWNLOAD.md`
+- **Hardware tests:** `docs/HARDWARE_TESTS.md`
+- **User tests:** `docs/USER_TESTS.md`
+- **Admin/backend tests:** `docs/ADMIN_BACKEND_TESTS.md`
+
+**Cross-references (related files)**
+
+- `docs/USER_TESTS.md` — user-focused test plans and checklists.
+- `docs/ADMIN_BACKEND_TESTS.md` — backend test plans, DB checks, and admin verification steps.
+- `docs/HARDWARE_TESTS.md` — hardware validation procedures (motor tests, installation checks).
+- `backend/DATABASE_SETUP.md` — database schema setup and migration notes.
+- `docs/QUICKSTART.html` — printable quickstart HTML for operators.
+- `docs/QUICKSTART_PDF_INSTRUCTIONS.md` — commands and tips to convert HTML to PDF locally.
+- Firmware README & sketches: `backend/YOLO/ESP32-CAM Firmware update/README.md` — flashing instructions and sketch descriptions. See also the `.ino` files in that folder: `backend/YOLO/ESP32-CAM Firmware update/esp32_feeder_sketch_reduced_cooldown.ino` and `backend/YOLO/ESP32-CAM Firmware update/esp32_feeder_quality_update.ino`.
+- Root README: `README.md` — project overview and GitHub publishing guidance.
+
 ## Project structure 🗂️
 
 ```
@@ -274,5 +292,3 @@ This project is released under the **MIT License** — add a `LICENSE` file in t
 For questions or to request help with deployment, open an issue or email the maintainer.
 
 ---
-
-If you'd like, I can commit demo GIF placeholders, add a `LICENSE` file, and scaffold a simple GitHub Actions CI workflow next. Which would you like me to do?
