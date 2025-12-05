@@ -10,7 +10,7 @@ _For Mandaluyong Dog Clinic with Crematorium_
 
 **STRAY** is an integrated animal feeding system combining **edge cameras** (ESP32-CAM), **object detection** (YOLO), and a cloud-hosted **web app** for scheduling, monitoring, and auditing feeds. Use the frontend to view live feeds, trigger manual or scheduled dispensing, and review gallery images (with detections).
 
-## Hero images / screenshots 📷
+## Images / Screenshots 📷
 
 - **Dashboard:** `docs/images/screenshot-dashboard.png` — live feed + feed controls
 - **Gallery:** `docs/images/screenshot-gallery.png` — saved images with detection overlays
